@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content})}"  >
+<div th:replace="~{LoginSuccessBase :: LoginSuccessBase(~{::#content})}"></div>
+<head>
+<meta charset="UTF-8">
+<title>List of Registered User</title>
+</head>
+<body>
+<div id="content">
+<h1 th:text=${Header}></h1>
+<h1 th:text=${Header1}></h1>
+<h1>The current time is  <span th:text="${datetime}"></span></h1>
+
+<!-- <p th:text="${getallregistereduser}"></p> --> 
+
+
+<table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the 'registered user' from the model -->
+            <tr th:each="registereduser : ${getallregistereduser}">
+                <!-- Display properties of each 'registered user' object -->
+                 
+                <td th:text="${registereduser.username}"></td>
+                <td th:text="${registereduser.email}"></td>
+                <td th:text="${registereduser.phonenumber}"></td>
+            </tr>
+        </tbody>
+
+    </table>
+    </div>
+</body>
+</html>

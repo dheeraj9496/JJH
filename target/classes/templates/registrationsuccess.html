@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content})}">
+<head>
+<meta charset="UTF-8">
+<title>Registration success</title>
+</head>
+
+<body>
+<div id="content">
+<h1 th:text="${Header}"></h1>
+<h1>The current time is  <span th:text="${datetime}"></span></h1>
+<h1>Hello <span th:text="${user.username}"></span>,Your are registered successfully </h1>
+
+
+</div>
+</body>
+</html>

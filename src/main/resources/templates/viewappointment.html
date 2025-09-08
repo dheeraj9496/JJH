@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content})}">
+<head>
+<meta charset="UTF-8">
+<title>List of appointment</title>
+</head>
+<body>
+<div id="content">
+<h1>Jeevan Jyoti Hospital</h1>
+<h1>The current time is  <span th:text="${datetime}"></span></h1>
+<h1 th:text="${Header}"></h1>
+<!--<p th:text="${viewappointment}"></p>  -->
+
+
+<table>
+        <thead>
+            <tr>
+                <th style="background-color: Grey">Name</th>
+                <th style="background-color: Grey">Phone</th>
+                <th style="background-color: Grey">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the 'productList' from the model -->
+            <tr th:each="appointment : ${viewappointment}">
+                <!-- Display properties of each 'product' object -->
+                <td th:text="${appointment.name}"></td>
+                <td th:text="${appointment.phone}"></td>
+                <td th:text="${appointment.Date}"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

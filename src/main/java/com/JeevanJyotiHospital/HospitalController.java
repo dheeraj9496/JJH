@@ -1,17 +1,33 @@
 package com.JeevanJyotiHospital;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.JeevanJyotiHospital.Entities.Appointment;
+import com.JeevanJyotiHospital.Repo.RegistrationRepo;
+import com.JeevanJyotiHospital.Services.RegistrationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class HospitalController {
+	
+	@Autowired
+	RegistrationService regiservice;
 	
 	@RequestMapping("/")
 	public String home() {
@@ -20,11 +36,16 @@ public class HospitalController {
 	}
 		
 	
-@RequestMapping("/book")
+@RequestMapping("/register")
 public String bookings() {
-	return "booking";
+	return "register";
 }
 
+@RequestMapping("/appointment")
+public String booking(Model m) {
+	m.addAttribute("appointment", new Appointment());
+	return "booking";
+}
 
 /*
  * @RequestMapping("/regForm")
@@ -61,31 +82,56 @@ public String bookings() {
  */
 
 @RequestMapping("/regForm")
-public String output3(@ModelAttribute User user) {
-	
-
+public String output3(@Valid @ModelAttribute("user") User user, BindingResult result,Model m) {
+	if (result.hasErrors()	) {
+		System.out.println(result);
+	}
+	this.regiservice.Saveuser(user);
+	m.addAttribute("datetime",LocalDateTime.now().toString());
 	System.out.println(user);
 	if (user.username.isBlank())
 	{
 		return "redirect:/book";
 	}
+	return "registrationsuccess";
+}
 
-
-
-
-
-	return "success";
+@GetMapping("/ViewRegisteredUser")
+@ResponseBody
+public List<User> ViewRegisteredUser() {
+	return regiservice.GetAllRegisteredUser();
+	
 }
   
+//another way to view registered user
+@GetMapping("/ViewAllRegisteredUser")
+
+public String ViewAllRegisteredUser(Model m) {
+	m.addAttribute("datetime",LocalDateTime.now().toString());
+	m.addAttribute("getallregistereduser",this.regiservice.GetAllRegisteredUser());
+	m.addAttribute("Header1","List of registered User");
+	return "registereduser";
+	
+}
   
   
   @ModelAttribute
   public void common(Model m) {
 	  m.addAttribute("Header","Jeevan Jyoti Hospital");
 	  System.out.println("Common data added");
-	  
+	 
+  }
+  @RequestMapping("/service")
+  public String service() {
+	  return "service";
+  }
+
+ 
+  @RequestMapping("/Contact")
+  public String contact() {
+	  return "Contact";
   }
   
 
- 
+
 }

@@ -1,5 +1,13 @@
 package com.JeevanJyotiHospital;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+@Entity
 public class User {
 	
 	@Override
@@ -7,9 +15,16 @@ public class User {
 		return "User [username=" + username + ", email=" + email + ", password=" + password + ", phonenumber="
 				+ phonenumber + "]";
 	}
-	String username;
-	String email;
-	String password;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	@NotBlank(message="username can not be null")
+	
+	public String username;
+	@NotBlank(message="Email can not be null")
+	@Email
+	public String email;
+	public String password;
 	Long phonenumber;
 	
 	
@@ -45,6 +60,11 @@ public class User {
 	}
 	public void setPhonenumber(Long phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+	
+	public User()
+	{
+		super();
 	}
 	
 }

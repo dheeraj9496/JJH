@@ -1,0 +1,220 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="parent(content)">
+
+<head>
+ <title >Jeevan Jyoti Hospital</title>
+</head>
+<body>
+
+<div class="Block">
+<button class="button" onclick="document.location='/'">Home</button>
+<button class="button" onclick="document.location='/appointment'">Book Appointment</button>
+<button class="button" onclick="document.location='/service'">Services</button>
+
+<h1>Location</h1>
+<h1>Careers</h1>
+<!-- <button><a href="Contact" >Contact US</a></button> -->
+<button class="button" onclick="document.location='/Contact'">Contact Us</button>
+<button class="button" onclick="document.location='/logins'">Login</button>
+</div>
+<section data-th-replace="${content}"></section>
+</body>
+
+<style>
+
+ .form-group{    width: 50%;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    font-weight: 500;
+    font-size: 16px;
+    color: #6b7280;
+    outline: none;
+    resize: none;
+    
+  }
+  
+   .btn-primary{text-align: center;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 14px 52px;
+    border: none;
+    font-weight: 600;
+    background-color: #6a64f1;
+    color: white;
+    width: 40%;
+    
+  }
+
+
+
+  
+  
+  .Block {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  color:white;
+  background-color:grey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Main{
+background:linear-gradient(rgba(0,0,1,.2),rgba(0,0,5,.1)),url(../image/hospital.jpg);
+background-size:cover;
+height:0%;
+width:100%;
+}
+
+
+.Block .button{
+  position: relative;
+  
+  color:white;
+  background-color:grey;
+  font-size: 36px;
+
+}
+.container {
+  position: relative;
+  max-width: 1500px;
+  
+  display: grid;
+ align-items: center; 
+ grid-template-columns: 2fr 2fr 2fr;
+ column-gap: 25px;
+}
+
+
+
+
+
+  h2 {
+  color: #007bff;
+}
+ul {
+  list-style-type: none; 
+  padding: 0;
+}
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+  
+  
+  
+  
+  
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .formbold-mb-5 {
+    margin-bottom: 20px;
+  }
+  .formbold-pt-3 {
+    padding-top: 12px;
+  }
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 550px;
+    width: 100%;
+    background: white;
+  }
+  .formbold-form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    color: #07074d;
+    margin-bottom: 12px;
+  }
+  .formbold-form-label-2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .formbold-form-input {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    font-weight: 500;
+    font-size: 16px;
+    color: #6b7280;
+    outline: none;
+    resize: none;
+  }
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .formbold-btn {
+    text-align: center;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 14px 32px;
+    border: none;
+    font-weight: 600;
+    background-color: #6a64f1;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .formbold--mx-3 {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .formbold-px-3 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .flex {
+    display: flex;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .w-full {
+    width: 100%;
+  }
+  @media (min-width: 540px) {
+    .sm\:w-half {
+      width: 50%;
+    }
+  }
+  
+  
+  
+  body{
+background:linear-gradient(rgba(0,0,1,.2),rgba(0,0,5,.1)),url(../image/hospital.jpg);
+background-size:cover;
+background-attachment:fixed;
+background-repeat:no-repeat;
+font-family: "Inter", Arial, Helvetica, sans-serif;
+
+}
+
+</style>
+
+</html>

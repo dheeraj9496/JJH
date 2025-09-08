@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="LoginSuccessBase(content)">
+<head>
+<meta charset="UTF-8">
+<title>Successfully Logged</title>
+</head>
+<body>
+<div >
+
+<h1>Hello <span th:text="${username}"></span> you are logged in </h1>
+<h1>The current time is  <span th:text="${datetime}"></span></h1>
+
+
+<div class="Block">
+<button class="button" onclick="document.location='/ViewAllRegisteredUser'">View Registered User</button>
+<button class="button" onclick="document.location='/ViewAppointment'">View Appointment</button>
+<button class="button" onclick="document.location='/register'">Register </button>
+<button class="button" onclick="document.location='/logouts'">Logout</button>
+<section data-th-replace="${content}"></section>
+</div>
+</div>
+</body>
+</html>
