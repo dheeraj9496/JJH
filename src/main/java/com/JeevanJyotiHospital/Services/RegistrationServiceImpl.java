@@ -32,10 +32,13 @@ public class RegistrationServiceImpl implements RegistrationService{
 	public User finduserByEmail(String email, String password) {
 	User	validregistereduser= regisrepo.findByEmail(email);
 	
+	
 	if(validregistereduser !=null && validregistereduser.getPassword().equals(password)) {
 		return validregistereduser;
 	}
 		return null;
 	}
+	
+	
 
 }

@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import com.JeevanJyotiHospital.Services.LoginServiceImpl;
 import com.JeevanJyotiHospital.Services.RegistrationService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -24,7 +26,8 @@ import com.JeevanJyotiHospital.Services.LoginService;
 @Controller
 public class loginController {
 
-    
+
+	
 @Autowired 
 AppointmentService appointservice;
 
@@ -52,7 +55,8 @@ LoginService loginservice;
 	
 	@PostMapping("/logging")
 	public String loggings(@Valid  @ModelAttribute("user") LoginUser user,BindingResult result,org.springframework.ui.Model m) {
-	//	this.loginrepo.save(user);
+
+		
 		this.loginservice.SaveLoginUser(user);
 		
 		if(result.hasFieldErrors()) {

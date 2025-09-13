@@ -12,8 +12,8 @@
 <h1>The current time is  <span th:text="${datetime}"></span></h1>
 
 
-<div class="Block">
-<button class="button" onclick="document.location='/ViewAllRegisteredUser'">View Registered User</button>
+<div class="Block" th:if="username != null" >
+<button class="button" onclick="document.location='private/ViewAllRegisteredUser'">View Registered User</button>
 <button class="button" onclick="document.location='/ViewAppointment'">View Appointment</button>
 <button class="button" onclick="document.location='/register'">Register </button>
 <button class="button" onclick="document.location='/logouts'">Logout</button>

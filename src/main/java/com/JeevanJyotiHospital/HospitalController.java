@@ -22,6 +22,7 @@ import com.JeevanJyotiHospital.Repo.RegistrationRepo;
 import com.JeevanJyotiHospital.Services.RegistrationService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HospitalController {
@@ -104,7 +105,7 @@ public List<User> ViewRegisteredUser() {
 }
   
 //another way to view registered user
-@GetMapping("/ViewAllRegisteredUser")
+@GetMapping("private/ViewAllRegisteredUser")
 
 public String ViewAllRegisteredUser(Model m) {
 	m.addAttribute("datetime",LocalDateTime.now().toString());
@@ -129,6 +130,7 @@ public String ViewAllRegisteredUser(Model m) {
  
   @RequestMapping("/Contact")
   public String contact() {
+
 	  return "Contact";
   }
   
