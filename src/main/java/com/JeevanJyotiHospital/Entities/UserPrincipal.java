@@ -12,10 +12,10 @@ import com.JeevanJyotiHospital.User;
 
 public class UserPrincipal implements UserDetails {
 
-	
-public	User user;
+	public User user;
+
 	public UserPrincipal(User user) {
-		this.user=user;
+		this.user = user;
 	}
 
 	@Override

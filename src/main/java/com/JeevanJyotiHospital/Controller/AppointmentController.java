@@ -37,7 +37,7 @@ public class AppointmentController {
 	}
 	
 	
-	@GetMapping("/ViewAppointment")
+	@GetMapping("private/ViewAppointment")
 	//@ResponseBody
 	public String Viewappointment(Model m) {
 	//	return this.appointmentservice.GetAllAppointment();

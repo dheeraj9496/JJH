@@ -1,105 +1,121 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Jeevan Jyoti Hospital</title>
 </head>
 <style>
-
 .Block {
-  position: relative;
-  max-width: 1300px;
-  margin: 0 auto;
-  color:white;
-  background-color:grey;
-  
-  display: flex;
-  justify-content: space-between;
+	position: relative;
+	max-width: 1300px;
+	margin: 0 auto;
+	color: white;
+	background-color: grey;
+	display: flex;
+	justify-content: space-between;
 }
 
-.Main{
-background:linear-gradient(rgba(0,0,1,.2),rgba(0,0,5,.1)),url(../image/hospital.jpg);
-background-size:cover;
-height:0%;
-width:100%;
+.Main {
+	background: linear-gradient(rgba(0, 0, 1, .2), rgba(0, 0, 5, .1)),
+		url(../image/hospital.jpg);
+	background-size: cover;
+	height: 0%;
+	width: 100%;
 }
 
-.Block .button{
-  position: relative;
-  color:white;
-  background-color:grey;
-  font-size: 36px;
-
+.Block .button {
+	position: relative;
+	color: white;
+	background-color: grey;
+	font-size: 36px;
 }
+
 .container {
-  position: relative;
-  max-width: 1500px;
-  
-  display: grid;
- align-items: center; 
- grid-template-columns: 2fr 2fr 2fr;
- column-gap: 25px;
+	position: relative;
+	max-width: 1500px;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 2fr 2fr 2fr;
+	column-gap: 25px;
 }
-
-
-
 </style>
 <body>
-<section class="Main">
-<div class="Block">
-<h1>Home</h1>
-<button class="button" onclick="document.location='/appointment'">Book Appointment</button>
-<button class="button" onclick="document.location='/service'">Services</button>
+	<section class="Main">
+		<div class="Block">
+			<h1>Home</h1>
+			<button class="button" onclick="document.location='/appointment'">Book
+				Appointment</button>
+			<button class="button" onclick="document.location='/service'">Services</button>
 
-<h1>Location</h1>	
-<h1>Careers</h1>
-<!-- <button><a href="Contact" >Contact US</a></button> -->
-<button class="button" onclick="document.location='/Contact'">Contact Us</button>
-<button class="button" onclick="document.location='/logins'">Login</button>
-</div>
-<br>
-<br>
+			<h1>Location</h1>
+			<h1>Careers</h1>
+			<!-- <button><a href="Contact" >Contact US</a></button> -->
+			<button class="button" onclick="document.location='/Contact'">Contact
+				Us</button>
+			<button class="button" onclick="document.location='/logins'">Login</button>
+		</div>
+		<br> <br>
 
 
 
 
-<div class="container">
+		<div class="container">
 
-<div class="img">
- 
-  <iframe src="image/hospital.jpg" width="100%" height="100%"></iframe>
-</div>
+			<div class="img">
 
- <div >
-    <h1>Welcome To Jeevan Jyoti Hospital </h1>
-    <p>The Best Medical Service of Lalganj City. We encourage you to find out more about the values and vision that guides us, the services and programs we offer, the indicators that ensure our continued accountability and transparency, and the news and events that matter most to you. It is the place where you will find information on career opportunities with HMH and be able to access general healthcare information to keep you well informed.</p>
- </div>
+				<iframe src="image/hospital.jpg" width="100%" height="100%"></iframe>
+			</div>
 
-  
- <div>
-      <h1>Vision</h1>
-      <p>To provide each patient with the world-class care, exceptional service and compassion we would want for our loved ones and To Lead the evolution of healthcare to enable every member of the communities we serve to enjoy a better, healthier life.</p>
- </div>
-  
-  <div>
-      <h1>Mission</h1>
-      <p>The mission of JJ Hospital is to provide quality health services and facilities for the community, to promote wellness, to relieve suffering, and to restore health as swiftly, safely, and humanely as it can be done, consistent with the best service we can give at the highest value for all concerned.</p>
-  </div>
-  
-<div>
-  <h1>Director Message</h1>
-  <p>Dear visitors, patients, and colleagues.</p>
-  <p>It is with great pride and a deep sense of responsibility that I welcome you to JJH.  Our mission is to provide exceptional healthcare services, guided by our core values of [mention values, e.g., compassion, integrity, excellence].</p>
-  <p>Rishi</p>
+			<div>
+				<h1>Jeevan Jyoti Hospital</h1>
+				<p>The Best Medical Service of Lalganj City. We encourage you to
+					find out more about the values and vision that guides us, the
+					services and programs we offer, the indicators that ensure our
+					continued accountability and transparency, and the news and events
+					that matter most to you. It is the place where you will find
+					information on career opportunities with HMH and be able to access
+					general healthcare information to keep you well informed.</p>
+			</div>
 
-  
-</div>
-<address>Jeevan Jyoti Hospital, Singh Complex, Infront of Gandak Project, Hajipur - Lalganj Rd, Lalganj, Bihar 844121</address>
-<a href="#" onclick="document.getElementById('Box').style.display='block'">Open PDF</a>
-<div id="Box" style="display: none; margin-top: 20px; width: 100%; height: 600px;">
-<iframe src="75887197_1750938747098.pdf" width="100%" height="100%"></iframe>
-</div>
-</div>
-</section>
+
+			<div>
+				<h1>Vision</h1>
+				<p>To provide each patient with the world-class care,
+					exceptional service and compassion we would want for our loved ones
+					and To Lead the evolution of healthcare to enable every member of
+					the communities we serve to enjoy a better, healthier life.</p>
+			</div>
+
+			<div>
+				<h1>Mission</h1>
+				<p>The mission of JJ Hospital is to provide quality health
+					services and facilities for the community, to promote wellness, to
+					relieve suffering, and to restore health as swiftly, safely, and
+					humanely as it can be done, consistent with the best service we can
+					give at the highest value for all concerned.</p>
+			</div>
+
+			<div>
+				<h1>Director Message</h1>
+				<p>Dear visitors, patients, and colleagues.</p>
+				<p>It is with great pride and a deep sense of responsibility
+					that I welcome you to JJH. Our mission is to provide exceptional
+					healthcare services, guided by our core values of [mention values,
+					e.g., compassion, integrity, excellence].</p>
+				<p>Rishi</p>
+
+
+			</div>
+			<address>Jeevan Jyoti Hospital, Singh Complex, Infront of
+				Gandak Project, Hajipur - Lalganj Rd, Lalganj, Bihar 844121</address>
+			<a href="#"
+				onclick="document.getElementById('Box').style.display='block'">Open
+				PDF</a>
+			<div id="Box"
+				style="display: none; margin-top: 20px; width: 100%; height: 600px;">
+				<iframe src="75887197_1750938747098.pdf" width="100%" height="100%"></iframe>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

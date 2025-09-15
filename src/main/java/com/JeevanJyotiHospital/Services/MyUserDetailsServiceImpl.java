@@ -11,18 +11,17 @@ import com.JeevanJyotiHospital.Entities.UserPrincipal;
 import com.JeevanJyotiHospital.Repo.RegistrationRepo;
 
 @Service
-public class MyUserDetailsServiceImpl implements UserDetailsService{
-	
+public class MyUserDetailsServiceImpl implements UserDetailsService {
+
 	@Autowired
 	RegistrationRepo regisrepo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		
-		User user=regisrepo.findByUsername(username);
-		
-		if(user==null) {
+
+		User user = regisrepo.findByUsername(username);
+
+		if (user == null) {
 			System.out.println("User not Found");
 			throw new UsernameNotFoundException("User not Found");
 		}

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,114 +28,103 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HospitalController {
-	
+
 	@Autowired
 	RegistrationService regiservice;
-	
+
 	@RequestMapping("/")
 	public String home() {
-		
+
 		return "index";
 	}
-		
-	
-@RequestMapping("/register")
-public String bookings() {
-	return "register";
-}
 
-@RequestMapping("/appointment")
-public String booking(Model m) {
-	m.addAttribute("appointment", new Appointment());
-	return "booking";
-}
-
-/*
- * @RequestMapping("/regForm")
- *  public String output(HttpServletRequest request)
- * {
- *  String uname=request.getParameter("username"); 
- *  String email=request.getParameter("email"); 
- *  String pass=request.getParameter("password");
- * System.out.println("My name is  "+uname);
- *  System.out.println("My email is  " +email); 
- *  System.out.println("My password is  " +pass); 
- *  return null;
- * 
- * 
- * }
- */
-  
-  
- /* @RequestMapping("/regForm")
-  public String output2(@RequestParam("username") String uname, 
-		  @RequestParam("email") String email,
-		  @RequestParam("password") String password,
-		  @RequestParam("phonenumber") String phone,
-		  Model model) {
-	  System.out.println(uname);
-	  System.out.println(email);
-	  System.out.println(password);
-	  System.out.println(phone);
-	  
-	  model.addAttribute("username", uname);
-	return "success";
-	  
-  }
- */
-
-@RequestMapping("/regForm")
-public String output3(@Valid @ModelAttribute("user") User user, BindingResult result,Model m) {
-	if (result.hasErrors()	) {
-		System.out.println(result);
+	@RequestMapping("private/register")
+	public String bookings() {
+		return "register";
 	}
-	this.regiservice.Saveuser(user);
-	m.addAttribute("datetime",LocalDateTime.now().toString());
-	System.out.println(user);
-	if (user.username.isBlank())
-	{
-		return "redirect:/book";
+
+	@RequestMapping("/appointment")
+	public String booking(Model m) {
+		m.addAttribute("appointment", new Appointment());
+		return "booking";
 	}
-	return "registrationsuccess";
-}
 
-@GetMapping("/ViewRegisteredUser")
-@ResponseBody
-public List<User> ViewRegisteredUser() {
-	return regiservice.GetAllRegisteredUser();
-	
-}
-  
-//another way to view registered user
-@GetMapping("private/ViewAllRegisteredUser")
+	/*
+	 * @RequestMapping("/regForm") public String output(HttpServletRequest request)
+	 * { String uname=request.getParameter("username"); String
+	 * email=request.getParameter("email"); String
+	 * pass=request.getParameter("password");
+	 * System.out.println("My name is  "+uname); System.out.println("My email is  "
+	 * +email); System.out.println("My password is  " +pass); return null;
+	 * 
+	 * 
+	 * }
+	 */
 
-public String ViewAllRegisteredUser(Model m) {
-	m.addAttribute("datetime",LocalDateTime.now().toString());
-	m.addAttribute("getallregistereduser",this.regiservice.GetAllRegisteredUser());
-	m.addAttribute("Header1","List of registered User");
-	return "registereduser";
-	
-}
-  
-  
-  @ModelAttribute
-  public void common(Model m) {
-	  m.addAttribute("Header","Jeevan Jyoti Hospital");
-	  System.out.println("Common data added");
-	 
-  }
-  @RequestMapping("/service")
-  public String service() {
-	  return "service";
-  }
+	/*
+	 * @RequestMapping("/regForm") public String output2(@RequestParam("username")
+	 * String uname,
+	 * 
+	 * @RequestParam("email") String email,
+	 * 
+	 * @RequestParam("password") String password,
+	 * 
+	 * @RequestParam("phonenumber") String phone, Model model) {
+	 * System.out.println(uname); System.out.println(email);
+	 * System.out.println(password); System.out.println(phone);
+	 * 
+	 * model.addAttribute("username", uname); return "success";
+	 * 
+	 * }
+	 */
 
- 
-  @RequestMapping("/Contact")
-  public String contact() {
+	@RequestMapping("/regForm")
+	public String registring_user(@ModelAttribute("user") User user, Model m) {
+		final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+		user.setPassword(encoder.encode(user.getPassword()));
+		this.regiservice.Saveuser(user);
+		m.addAttribute("datetime", LocalDateTime.now().toString());
+		System.out.println(user);
+		if (user.username.isBlank()) {
+			return "redirect:/book";
+		}
+		return "registrationsuccess";
+	}
 
-	  return "Contact";
-  }
-  
+	@GetMapping("/ViewRegisteredUser")
+	@ResponseBody
+	public List<User> ViewRegisteredUser() {
+		return regiservice.GetAllRegisteredUser();
 
+	}
+
+    //another way to view registered user
+	@GetMapping("private/ViewAllRegisteredUser")
+
+	public String ViewAllRegisteredUser(Model m) {
+		m.addAttribute("datetime", LocalDateTime.now().toString());
+		m.addAttribute("getallregistereduser", this.regiservice.GetAllRegisteredUser());
+		m.addAttribute("Header1", "List of registered User");
+		return "registereduser";
+
+	}
+
+	@ModelAttribute
+	public void common(Model m) {
+		m.addAttribute("Header", "Jeevan Jyoti Hospital");
+		System.out.println("Common data added");
+
+	}
+
+	@RequestMapping("/service")
+	public String service() {
+		return "service";
+	}
+
+	@RequestMapping("/Contact")
+	public String contact() {
+
+		return "Contact";
+	}
 
 }
