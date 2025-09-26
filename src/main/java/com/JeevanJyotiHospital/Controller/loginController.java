@@ -50,7 +50,7 @@ public class loginController {
 
 	@PostMapping("/logging")
 	public String loggings(@ModelAttribute("loginuser") LoginUser loginuser, org.springframework.ui.Model m,
-			@ModelAttribute("user") User user) {
+			@ModelAttribute User user) {
 
 		final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 		loginuser.setPassword(encoder.encode(loginuser.getPassword()));
@@ -65,8 +65,8 @@ public class loginController {
 		 * return "loginsuccess"; else return "login" ;
 		 */
 
-		User validregistereduser = regisservice.finduserByEmail(user.email, user.password);
 		System.out.println(user);
+/*		User validregistereduser = regisservice.finduserByEmail(user.email, user.password);
 		if (validregistereduser != null) {
 			m.addAttribute("username", validregistereduser.getUsername());
 			return "loginsuccess";
@@ -74,12 +74,27 @@ public class loginController {
 			m.addAttribute("errormsg", "Username or password did not match");
 			return "login";
 		}
-	}
+*/	
+	
+	//final BCryptPasswordEncoder encoder1 = new BCryptPasswordEncoder(12);
+	// user.setPassword(encoder1.encode(user.getPassword())); 
+	  User validregistereduser1= regisservice.finduserByEmail(user.username, user.password);
+	  
+	   if(validregistereduser1!=null)
+	    { 
+		   return "loginsuccess"; 
+	    }
+	  else { 
+		  m.addAttribute("errormsg", "Username or password did not match");
+	      return "login"; 
+	  
+	  } 
+	   }
+
 
 	@GetMapping("/logouts")
 
 	public String logout(org.springframework.ui.Model m) {
-
 		return "redirect:/logins";
 	}
 

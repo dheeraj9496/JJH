@@ -1,8 +1,10 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:fragment="parent(content)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="parent(content)">
 
 <head>
 <title>Jeevan Jyoti Hospital</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
@@ -11,15 +13,17 @@
 		<button class="button" onclick="document.location='/appointment'">Book
 			Appointment</button>
 		<button class="button" onclick="document.location='/service'">Services</button>
-
-		<h1>Location</h1>
-		<h1>Careers</h1>
+		<button class="button" onclick="document.location='/doclist'">Our Doctor's</button>
+		<button class="button" onclick="document.location='#'">Careers</button>
 		<!-- <button><a href="Contact" >Contact US</a></button> -->
 		<button class="button" onclick="document.location='/Contact'">Contact
 			Us</button>
 		<button class="button" onclick="document.location='/logins'">Login</button>
 	</div>
 	<section data-th-replace="${content}"></section>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 </body>
 
 <style>
@@ -28,12 +32,30 @@
 	padding: 12px 24px;
 	border-radius: 6px;
 	border: 1px solid #e0e0e0;
-	background: white;
+	background: teal;
 	font-weight: 500;
 	font-size: 16px;
-	color: #6b7280;
+	color: black;
 	outline: none;
 	resize: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	
+}
+
+
+.form-group-check{
+display: block;
+  position: relative;
+  padding-left: 35px; /* Space for the custom checkbox */
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn-primary {
@@ -45,31 +67,25 @@
 	font-weight: 600;
 	background-color: #6a64f1;
 	color: white;
-	width: 40%;
+	width: 30%;
 }
 
 .Block {
 	position: relative;
 	max-width: 1300px;
 	margin: 0 auto;
-	color: white;
-	background-color: grey;
+	color: teal;
+	background-color: teal;
 	display: flex;
 	justify-content: space-between;
 }
 
-.Main {
-	background: linear-gradient(rgba(0, 0, 1, .2), rgba(0, 0, 5, .1)),
-		url(../image/hospital.jpg);
-	background-size: cover;
-	height: 0%;
-	width: 100%;
-}
+
 
 .Block .button {
 	position: relative;
 	color: white;
-	background-color: grey;
+	background-color: teal;
 	font-size: 36px;
 }
 
@@ -89,6 +105,11 @@ h2 {
 ul {
 	list-style-type: none;
 	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 250px;
+	text-align: center;
+	
 }
 
 li {
@@ -96,14 +117,12 @@ li {
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #f9f9f9;
+	background-color: teal;
+	font-size: 25px;
+	color: white;
+	
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 .formbold-mb-5 {
 	margin-bottom: 20px;
@@ -127,19 +146,7 @@ li {
 	background: white;
 }
 
-.formbold-form-label {
-	display: block;
-	font-weight: 500;
-	font-size: 16px;
-	color: #07074d;
-	margin-bottom: 12px;
-}
 
-.formbold-form-label-2 {
-	font-weight: 600;
-	font-size: 20px;
-	margin-bottom: 20px;
-}
 
 .formbold-form-input {
 	width: 100%;
@@ -148,7 +155,7 @@ li {
 	border: 1px solid #e0e0e0;
 	background: white;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 15px;
 	color: #6b7280;
 	outline: none;
 	resize: none;
@@ -204,14 +211,7 @@ li {
 	}
 }
 
-body {
-	background: linear-gradient(rgba(0, 0, 1, .2), rgba(0, 0, 5, .1)),
-		url(../image/hospital.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	font-family: "Inter", Arial, Helvetica, sans-serif;
-}
+
 </style>
 
 </html>

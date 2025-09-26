@@ -38,9 +38,14 @@ public class HospitalController {
 		return "index";
 	}
 
-	@RequestMapping("private/register")
+	@RequestMapping("/private/register")
 	public String bookings() {
 		return "register";
+	}
+	
+	@RequestMapping("/private/logins")
+		public String privatelogin() {
+		return "loginsuccess";
 	}
 
 	@RequestMapping("/appointment")
@@ -80,11 +85,10 @@ public class HospitalController {
 
 	@RequestMapping("/regForm")
 	public String registring_user(@ModelAttribute("user") User user, Model m) {
-		final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
-		user.setPassword(encoder.encode(user.getPassword()));
-		this.regiservice.Saveuser(user);
 		m.addAttribute("datetime", LocalDateTime.now().toString());
+		this.regiservice.Saveuser(user);
 		System.out.println(user);
+		
 		if (user.username.isBlank()) {
 			return "redirect:/book";
 		}
@@ -99,12 +103,12 @@ public class HospitalController {
 	}
 
     //another way to view registered user
-	@GetMapping("private/ViewAllRegisteredUser")
+	@GetMapping("/private/ViewAllRegisteredUser")
 
 	public String ViewAllRegisteredUser(Model m) {
 		m.addAttribute("datetime", LocalDateTime.now().toString());
-		m.addAttribute("getallregistereduser", this.regiservice.GetAllRegisteredUser());
-		m.addAttribute("Header1", "List of registered User");
+		m.addAttribute("getallregisteredusers", this.regiservice.GetAllRegisteredUser());
+		m.addAttribute("Header1", "List of Registered User");
 		return "registereduser";
 
 	}
@@ -125,6 +129,11 @@ public class HospitalController {
 	public String contact() {
 
 		return "Contact";
+	}
+	
+	@RequestMapping("/doclist")
+	public String doclist() {
+		return "doclist";
 	}
 
 }

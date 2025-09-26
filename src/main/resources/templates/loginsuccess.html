@@ -9,21 +9,21 @@
 <body>
 	<div id="content">
 
-		<h1>
-			Hello <span th:text="${username}"></span> you are logged in
+		<h1 style="text-align:center;">
+			Hello <span th:text="${username}" ></span> you are logged in
 		</h1>
-		<h1>
-			The current time is <span th:text="${datetime}"></span>
+		<h1 style="text-align:center;">
+			 Current time: <span th:text="${datetime}"></span>
 		</h1>
 
 
 		<div class="Block" th:if="username != null">
 			<button class="button"
-				onclick="document.location='private/ViewAllRegisteredUser'">View
+				onclick="document.location='/private/ViewAllRegisteredUser'">View
 				Registered User</button>
-			<button class="button" onclick="document.location='private/ViewAppointment'">View
+			<button class="button" onclick="document.location='/private/ViewAppointment'">View
 				Appointment</button>
-			<button class="button" onclick="document.location='private/register'">Register
+			<button class="button" onclick="document.location='/private/register'">Register
 			</button>
 			<button class="button" onclick="document.location='/logouts'">Logout</button>
 		</div>

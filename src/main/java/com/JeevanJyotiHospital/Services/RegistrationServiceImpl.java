@@ -23,19 +23,31 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Override
 	public User Saveuser(User user) {
-
+		
+		final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+		user.setPassword(encoder.encode(user.getPassword()));
 		return regisrepo.save(user);
 	}
 
 	@Override
 	public User finduserByEmail(String email, String password) {
-		User validregistereduser = regisrepo.findByEmail(email);
-		// BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(12);
-		// validregistereduser.setPassword(encoder.encode(validregistereduser.getPassword()));
+		User validregistereduser = regisrepo.findByEmail(email) ;
 
 		if (validregistereduser != null && validregistereduser.getPassword().equals(password)) {
 			return validregistereduser;
+			
 		}
+		
+		return null;
+	}
+
+	@Override
+	public User findUserByUsername(String username, String password) {
+		
+	User	validregistereduser1=regisrepo.findByUsername(username);
+	if(validregistereduser1 != null && validregistereduser1.getPassword().equals(password)) {
+		return validregistereduser1;
+	}
 		return null;
 	}
 

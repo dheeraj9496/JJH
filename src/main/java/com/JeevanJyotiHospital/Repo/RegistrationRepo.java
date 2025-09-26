@@ -8,8 +8,10 @@ import com.JeevanJyotiHospital.User;
 @Repository
 public interface RegistrationRepo extends JpaRepository<User, Long> {
 	User  findByEmail(String email);
-
 	User findByUsername(String username);
+	
+	
+	
 	
 
 }

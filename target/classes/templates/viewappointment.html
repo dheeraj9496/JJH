@@ -3,37 +3,53 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{base :: parent(~{::#content})}">
 <head>
+
+
 <meta charset="UTF-8">
-<title>List of appointment</title>
+<title >List of appointment</title>
 </head>
-<body>
-	<div id="content">
-		<h1>Jeevan Jyoti Hospital</h1>
-		<h1>
-			The current time is <span th:text="${datetime}"></span>
-		</h1>
-		<h1 th:text="${Header}"></h1>
+
+
+<body style="background-color:teal">
+	<div id="content" >
+		<h1 style="margin-left: auto;margin-right: auto;width: 40%">Jeevan Jyoti Hospital</h1>
+		<h1 th:text="${Header}" style="margin-left: auto;margin-right: auto;width: 40%"></h1>
 		<!--<p th:text="${viewappointment}"></p>  -->
+		
 
 
-		<table>
+		<table style="background-color: teal;margin-left: auto;margin-right: auto;width: 80%" class="table table-dark table-hover">
 			<thead>
 				<tr>
-					<th style="background-color: Grey">Name</th>
-					<th style="background-color: Grey">Phone</th>
-					<th style="background-color: Grey">Date</th>
+				<th style="background-color: teal">ID</th>
+					<th style="background-color: teal">Patient Name</th>
+					<th style="background-color: teal">Phone</th>
+					<th style="background-color: teal">Date of Appointment</th>
+					<th style="background-color: teal">Address</th>
+					
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="background-color: white; justify-content: center;align-items: center;height: 50vh">
 				<!-- Iterate over the 'productList' from the model -->
 				<tr th:each="appointment : ${viewappointment}">
 					<!-- Display properties of each 'product' object -->
+					<td th:text="${appointment.id}"></td>
 					<td th:text="${appointment.name}"></td>
 					<td th:text="${appointment.phone}"></td>
-					<td th:text="${appointment.Date}"></td>
+					<td th:text="${appointment.date}"></td>
+					<td th:text="${appointment.address}"></td>
+					
+					
 				</tr>
 			</tbody>
 		</table>
+		
+			<h1 style="margin-left: auto;margin-right: auto;width: 70%">
+			current time:  <span th:text="${datetime}"></span>
+		</h1>
 	</div>
+	
+	
+	
 </body>
 </html>

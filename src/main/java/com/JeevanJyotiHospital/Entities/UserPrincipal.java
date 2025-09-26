@@ -34,6 +34,7 @@ public class UserPrincipal implements UserDetails {
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return user.getUsername();
+		
 	}
 
 }

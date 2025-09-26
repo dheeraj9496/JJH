@@ -20,7 +20,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		User user = regisrepo.findByUsername(username);
-
+		System.out.println(user);
 		if (user == null) {
 			System.out.println("User not Found");
 			throw new UsernameNotFoundException("User not Found");
