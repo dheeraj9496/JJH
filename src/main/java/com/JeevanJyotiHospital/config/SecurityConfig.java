@@ -35,7 +35,7 @@ public class SecurityConfig {
 		security.httpBasic(Customizer.withDefaults()); // for postman
 		// security.sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		 
-		return security.build();
+		return security.build(); 
 
 	}	
 
