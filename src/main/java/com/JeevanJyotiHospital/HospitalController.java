@@ -38,7 +38,7 @@ public class HospitalController {
 		return "index";
 	}
 
-	@RequestMapping("/private/register")
+	@RequestMapping("/register")
 	public String bookings() {
 		return "register";
 	}
