@@ -31,9 +31,9 @@ public class SecurityConfig {
 		security.authorizeHttpRequests(request -> request.requestMatchers("/private/**").authenticated());
 		security.authorizeHttpRequests(request -> request.anyRequest().permitAll());
 		security.formLogin(Customizer.withDefaults()); // for browser
-	//	security.formLogin(formLogin -> formLogin.loginPage("/logins").loginProcessingUrl("/logging").defaultSuccessUrl("/").permitAll()); // for browser
+		security.formLogin(formLogin -> formLogin.loginPage("/logins").loginProcessingUrl("/logging").defaultSuccessUrl("/private/ViewAppointment").permitAll()); // for browser
 		security.httpBasic(Customizer.withDefaults()); // for postman
-		// security.sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+		//security.sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		 
 		return security.build(); 
 
